@@ -424,7 +424,8 @@ module ActiveRecord
           timeout: config_timeout(config),
           encoding: config_encoding(config),
           azure: config[:azure],
-          contained: config[:contained]
+          contained: config[:contained],
+          application_intent: config[:application_intent] || :read_write
         ).tap do |client|
           if config[:azure]
             client.execute("SET ANSI_NULLS ON").do
